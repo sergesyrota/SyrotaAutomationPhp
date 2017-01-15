@@ -1,0 +1,10 @@
+{
+  "name": "sergesyrota/syrota-automation",
+  "version": "1.0.0",
+  "require": {
+    "ext-gearman": "*"
+  },
+  "autoload": {
+    "psr-0": { "SyrotaAutomation": "src/" }
+  },
+}
