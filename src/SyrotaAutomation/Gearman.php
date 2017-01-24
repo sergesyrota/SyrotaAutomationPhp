@@ -4,14 +4,30 @@ namespace SyrotaAutomation;
 
 class Gearman
 {
+
+  /*
+   * Gearman client
+   */
   private $client;
-  public function __construct($host = 'localhost', $port = 4730) {
+
+  /*
+   * Gearman task identifier
+   */
+  private $task;
+
+  public function __construct($task, $host = 'localhost', $port = 4730) {
     $this->client = new GearmanClient();
     $this->client->addServer($host, $port);
+    $this->task = $task;
+  }
+
+  public function setTask($task) {
+    $this->task = $task;
+    return $this;
   }
 
   public function command($address, $command) {
-    $res = $this->client->doNormal("rs485", chr(2) . $address . '>'. $command . "\n");
+    $res = $this->client->doNormal($this->task, chr(2) . $address . '>'. $command . "\n");
     switch($this->client->returnCode()) {
       case GEARMAN_SUCCESS:
         continue;
