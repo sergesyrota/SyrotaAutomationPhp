@@ -16,7 +16,7 @@ class Gearman
   private $task;
 
   public function __construct($task, $host = 'localhost', $port = 4730) {
-    $this->client = new GearmanClient();
+    $this->client = new \GearmanClient();
     $this->client->addServer($host, $port);
     $this->task = $task;
   }
