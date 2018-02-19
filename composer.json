@@ -1,9 +1,9 @@
 {
   "name": "sergesyrota/syrota-automation",
   "description": "Library to communicate using SyrotaAutomation protocol with home devices over RS-485",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "require": {
-    "ext-gearman": "*"
+    "mhlavac/gearman": "@dev"
   },
   "autoload": {
     "psr-0": { "SyrotaAutomation": "src/" }
